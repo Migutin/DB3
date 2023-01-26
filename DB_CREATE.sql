@@ -24,7 +24,7 @@ create table if not exists artist_album (
 create table if not exists track (
 		trackID serial primary key,
 		name text,
-		duration numeric,
+		duration time,
 		albumID integer references album (albumID)
 );
 create table if not exists digets (
@@ -34,6 +34,7 @@ create table if not exists digets (
 );
 create table if not exists digets_collection (
 		digets_collectionID serial primary key,
-		trackID integer references track (trackID),
-		digetsID integer references digets (digetsID)
+		digetsID integer references digets (digetsID),
+		trackID integer references track (trackID)
+		
 );
